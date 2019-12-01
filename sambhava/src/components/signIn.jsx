@@ -47,72 +47,147 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SignIn() {
-  const classes = useStyles();
+class SignIn extends React.Component {
+  render() {
+    console.log((this.props.location.state.from.pathname));
+    const classes = useStyles;
+    return (
+        <Grid
+            container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            justify="center"
+            style={{ minHeight: '100vh', background: 'url(https://client.truckola.in/tkl_background.c67dc5771d431697720d.png)', }}
+        >
+          <Card item  style = {{ background: '#', padding: '20px', maxWidth: '400px',  marginBottom: '10vh'}}>
+            <div className={classes.paper}>
+              <Avatar className={classes.avatar}>
+                <LockOutlinedIcon />
+              </Avatar>
+              <form className={classes.form} noValidate>
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email Address"
+                    name="email"
+                    autoComplete="email"
+                    autoFocus
+                />
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    name="password"
+                    label="password"
+                    type="password"
+                    id="password"
+                    autoComplete="current-password"
+                />
+                <FormControlLabel
+                    control={<Checkbox value="remember" color="primary" />}
+                    label="Remember me"
+                />
+                <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                    className={classes.submit}
+                >
+                  Log In
+                </Button>
+                <CardActions>
+                  <Button size="medium" color="primary" className={classes.button_1}>
+                    Forgot Password
+                  </Button>
+                  <NavLink to="/signUp" text-decoration="none" >
+                    <Button size="medium" color="primary">
+                      Register
+                    </Button>
+                  </NavLink>
+                </CardActions>
+              </form>
+            </div>
+          </Card>
+        </Grid>
+    );
 
-  return (
-    <Grid
-    container
-    spacing={0}
-    direction="column"
-    alignItems="center"
-    justify="center"
-    style={{ minHeight: '100vh', background: 'url(https://client.truckola.in/tkl_background.c67dc5771d431697720d.png)', }}
-  >
-    <Card item  style = {{ background: '#', padding: '20px', maxWidth: '400px',  marginBottom: '10vh'}}>
-      <div className={classes.paper}>  
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <form className={classes.form} noValidate>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />          
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Log In
-            </Button>
-          <CardActions>
-            <Button size="medium" color="primary" className={classes.button_1}>
-              Forgot Password
-            </Button>
-            <NavLink to="/signUp" text-decoration="none" >
-              <Button size="medium" color="primary">
-                Register
-              </Button>
-            </NavLink>
-          </CardActions>
-        </form>
-        </div>
-      </Card>   
-  </Grid> 
-  );
-}
+  }
+
+  }
+
+// export default function SignIn() {
+//   const classes = useStyles();
+//   return (
+//     <Grid
+//     container
+//     spacing={0}
+//     direction="column"
+//     alignItems="center"
+//     justify="center"
+//     style={{ minHeight: '100vh', background: 'url(https://client.truckola.in/tkl_background.c67dc5771d431697720d.png)', }}
+//   >
+//     <Card item  style = {{ background: '#', padding: '20px', maxWidth: '400px',  marginBottom: '10vh'}}>
+//       <div className={classes.paper}>
+//         <Avatar className={classes.avatar}>
+//           <LockOutlinedIcon />
+//         </Avatar>
+//         <form className={classes.form} noValidate>
+//           <TextField
+//             variant="outlined"
+//             margin="normal"
+//             required
+//             fullWidth
+//             id="email"
+//             label="Email Address"
+//             name="email"
+//             autoComplete="email"
+//             autoFocus
+//           />
+//           <TextField
+//             variant="outlined"
+//             margin="normal"
+//             required
+//             fullWidth
+//             name="password"
+//             label="password"
+//             type="password"
+//             id="password"
+//             autoComplete="current-password"
+//           />
+//           <FormControlLabel
+//             control={<Checkbox value="remember" color="primary" />}
+//             label="Remember me"
+//           />
+//             <Button
+//               type="submit"
+//               fullWidth
+//               variant="contained"
+//               color="primary"
+//               className={classes.submit}
+//             >
+//               Log In
+//             </Button>
+//           <CardActions>
+//             <Button size="medium" color="primary" className={classes.button_1}>
+//               Forgot Password
+//             </Button>
+//             <NavLink to="/signUp" text-decoration="none" >
+//               <Button size="medium" color="primary">
+//                 Register
+//               </Button>
+//             </NavLink>
+//           </CardActions>
+//         </form>
+//         </div>
+//       </Card>
+//   </Grid>
+//   );
+// }
+
+export default SignIn;
